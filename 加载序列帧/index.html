@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>聚力共享</title>
+        <meta name="viewport" content="width=640,user-scalable=no">
+        <link rel="stylesheet" href="c/css/reset.css">
+        <link rel="stylesheet" href="c/css/style.css">
+    </head>
+    <body>
+        <!-------------slide1----------------->
+        <section class="swiper-slide swiper-slide1">
+            <canvas id="canvas1"></canvas>
+        </section>
+    </body>
+    <script src="c/js/jquery-1.11.3.min.js"></script>
+    <script src="c/js/sequenceFrame.js"></script>
+    <script>
+        var frame1;
+        //加载序列帧动画
+        //第一页
+        var imgarr = [];
+        for(var i = 2 ;i < 52;i ++){
+            imgarr.push('c/images/home/'+i+'.jpg');
+        }
+        frame1 = new SequenceFrame({
+            id: $('#canvas1')[0],
+            width: 640,
+            height: 1038,
+            speed: 50,
+            loop: false,
+            autoplay: true,
+            imgArr: imgarr,
+            callback:function(){
+                $('.arr').show();
+            }
+        });
+
+
+    </script>
+</html>

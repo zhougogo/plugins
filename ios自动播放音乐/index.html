@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>聚力共享</title>
+        <meta name="viewport" content="width=640,user-scalable=no">
+        <link rel="stylesheet" href="c/css/reset.css">
+        <link rel="stylesheet" href="c/css/style.css">
+    </head>
+    <body>
+        <audio id="audio" src="c/1.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
+        <img src="c/images/on.png" class="music">
+    </body>
+    <script src="c/js/jquery-1.11.3.min.js"></script>
+    <script>
+        var audio = document.getElementById('audio');
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        window.addEventListener('touchstart', function firstTouch(){
+            audio.play();
+            this.removeEventListener('touchstart', firstTouch);
+        });
+
+        var musicState = true;
+        $('.music').click(function(){
+            if(musicState){
+                $(this).attr('src','c/images/off.png')
+                musicState = false;
+                audio.pause();
+            }else{
+                $(this).attr('src','c/images/on.png')
+                musicState = true;
+                audio.play();
+            }
+        })
+    </script>
+
+</html>
